@@ -1,11 +1,9 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+// astro.config.ts
+import { defineConfig } from 'astro/config'
+import tailwindcss from '@tailwindcss/vite'
 
-import tailwindcss from '@tailwindcss/vite';
-
-// https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  }
-});
+  site: 'https://patrickd10.github.io/RoCa',
+  base: '/RoCa',
+  vite: { plugins: [tailwindcss()] }
+})
