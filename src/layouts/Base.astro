@@ -16,24 +16,75 @@ const year = new Date().getFullYear();
 
   <body class="min-h-dvh bg-gradient-to-b from-white to-[#F3E9D8] text-slate-900 antialiased selection:bg-amber-200/40">
     <!-- HEADER reutilizabil -->
+    <!-- HEADER (mobil compact + burger, desktop neschimbat vizual) -->
     <header class="sticky top-0 z-50
-                   bg-white/70 supports-[backdrop-filter]:bg-white/30
-                   backdrop-blur-md border-b border-white/40 shadow-sm">
+                  bg-white/70 supports-[backdrop-filter]:bg-white/30
+                  backdrop-blur-md border-b border-white/40 shadow-sm">
       <nav class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between text-slate-900">
-        <a href="/RoCa/" class="flex items-center gap-3">
-          <img src="/RoCa//logo-roca.jpeg" alt="RoCa Swimming Club" class="h-8 w-auto md:h-10" />
-          <span class="text-slate-900 font-semibold tracking-tight text-lg">
-            RoCa <span class="font-semibold">Swimming Club</span>
+        <!-- Logo + titlu (titlu scurt pe mobil) -->
+        <a href="/RoCa/" class="flex items-center gap-2 min-w-0">
+          <img src="/RoCa//logo-roca.jpeg" alt="RoCa Swimming Club" class="h-7 w-7 md:h-10 md:w-10 rounded-sm object-cover" />
+          <span class="font-semibold tracking-tight text-base md:text-lg truncate">
+            RoCa <span class="hidden sm:inline font-semibold">Swimming Club</span>
           </span>
         </a>
-        <div class="flex gap-4 md:gap-5 text-[15px]">
-          <a href="/RoCa/"          class="hover:text-[#0F4C73] hover:underline underline-offset-4">Acasă</a>
-          <a href="/RoCa/cursuri"   class="hover:text-[#0F4C73] hover:underline underline-offset-4">Cursuri</a>
-          <a href="/RoCa/despre_noi"class="hover:text-[#0F4C73] hover:underline underline-offset-4">Despre Noi</a>
-          <a href="/RoCa/contact"   class="hover:text-[#0F4C73] hover:underline underline-offset-4">Contact</a>
+
+        <!-- Meniu desktop -->
+        <div class="hidden md:flex gap-4 md:gap-5 text-[15px]">
+          <a href="/RoCa/"           class="hover:text-[#0F4C73] hover:underline underline-offset-4">Acasă</a>
+          <a href="/RoCa/cursuri"    class="hover:text-[#0F4C73] hover:underline underline-offset-4">Cursuri</a>
+          <a href="/RoCa/despre_noi" class="hover:text-[#0F4C73] hover:underline underline-offset-4 whitespace-nowrap">Despre Noi</a>
+          <a href="/RoCa/contact"    class="hover:text-[#0F4C73] hover:underline underline-offset-4">Contact</a>
         </div>
+
+        <!-- Burger mobil -->
+        <button id="menu-btn"
+                class="md:hidden inline-flex items-center justify-center rounded-lg p-2
+                      hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30"
+                aria-label="Deschide meniul" aria-controls="mobile-menu" aria-expanded="false">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18M3 12h18M3 18h18"/>
+          </svg>
+        </button>
       </nav>
+
+      <!-- Panou mobil -->
+      <div id="mobile-menu"
+          class="md:hidden hidden px-4 pb-3 bg-white/95 backdrop-blur border-t border-white/60 shadow-sm">
+        <div class="flex flex-col divide-y divide-slate-200/70 text-[15px]">
+          <a class="py-3 hover:text-[#0F4C73]" href="/RoCa/">Acasă</a>
+          <a class="py-3 hover:text-[#0F4C73]" href="/RoCa/cursuri">Cursuri</a>
+          <a class="py-3 hover:text-[#0F4C73]" href="/RoCa/despre_noi">Despre Noi</a>
+          <a class="py-3 hover:text-[#0F4C73]" href="/RoCa/contact">Contact</a>
+        </div>
+      </div>
     </header>
+
+    <!-- Script mic pt. toggle meniu mobil -->
+    <script is:inline>
+      const btn = document.getElementById('menu-btn');
+      const panel = document.getElementById('mobile-menu');
+
+      function closeMenu() {
+        panel.classList.add('hidden');
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+      function toggleMenu() {
+        const hidden = panel.classList.toggle('hidden');
+        btn?.setAttribute('aria-expanded', String(!hidden));
+      }
+
+      btn?.addEventListener('click', toggleMenu);
+
+      // închide la resize pe md+
+      window.addEventListener('resize', () => {
+        if (window.matchMedia('(min-width: 768px)').matches) closeMenu();
+      });
+
+      // închide după click pe un link din meniu
+      panel?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    </script>
+
 
     <!-- Buton WhatsApp flotant -->
     <a href="https://wa.me/40741500611?text=Bună!%20Aș%20vrea%20informații%20despre%20cursurile%20RoCa."
