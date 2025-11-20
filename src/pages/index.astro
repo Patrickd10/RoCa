@@ -76,71 +76,72 @@ import Base from "../layouts/Base.astro";
     </section>
 
     <!-- FUN FACTS cu layout alternant (text + poze mari) -->
-    <section class="mt-14">
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 px-1 md:px-0">
-        Știai că înotul…
-      </h2>
+    <section class="mt-12">
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+      Știai că înotul…
+    </h2>
 
-      <div class="mt-6 grid gap-4 md:grid-cols-2">
-        <!-- Stânga: card text -->
-        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+    <!-- RÂND 1 (poza dreapta) -->
+    <div class="mt-6 grid gap-6 md:grid-cols-12 md:items-stretch">
+      <!-- col texte -->
+      <div class="md:col-span-7 flex flex-col gap-4">
+        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Lucrează tot corpul</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            Activează principalii mușchi, cu impact minim pe articulații — eficient și blând.
-          </p>
+          <p class="mt-1 text-sm text-slate-700">Activează principalii mușchi, cu impact minim pe articulații.</p>
         </article>
-
-        <!-- Dreapta: imagine pe 2 rânduri -->
-        <figure class="md:row-span-2 overflow-hidden rounded-2xl border border-slate-200/60 shadow h-64 md:h-[420px]">
-          <img src="/RoCa//p1.png" alt="Antrenament în bazin" class="w-full h-full object-cover" />
-        </figure>
-
-        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
-          <h3 class="font-semibold text-slate-900">Îmbunătățește respirația</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            Dezvoltă controlul respirator și capacitatea pulmonară — ritm, calm, constanță.
-          </p>
-        </article>
-
-        <!-- Rând 2: oglindire -->
-        <figure class="md:row-span-2 overflow-hidden rounded-2xl border border-slate-200/60 shadow h-64 md:h-[420px]">
-          <img src="/RoCa//p2.png" alt="Echipă de antrenori" class="w-full h-full object-cover" />
-        </figure>
-
-        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Arde multe calorii</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            400–700 kcal/oră (după stil și intensitate) — progres vizibil, sustenabil.
-          </p>
-        </article>
-
-        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
-          <h3 class="font-semibold text-slate-900">Ajută la recuperare</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            Apa ușurează mișcarea și reduce impactul articular — excelent pentru revenire.
-          </p>
-        </article>
-
-        <!-- Rând 3 -->
-        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
-          <h3 class="font-semibold text-slate-900">Îți întărește inima</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            Cardio complet, respirat corect, cu echilibru între tehnică și efort.
-          </p>
-        </article>
-
-        <figure class="md:row-span-2 overflow-hidden rounded-2xl border border-slate-200/60 shadow h-64 md:h-[420px]">
-          <img src="/RoCa//p3.png" alt="Identitatea RoCa" class="w-full h-full object-cover" />
-        </figure>
-
-        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
-          <h3 class="font-semibold text-slate-900">Eficient în timp</h3>
-          <p class="mt-1 text-sm text-slate-700">
-            30 de minute în apă ≈ 45 pe uscat ca efort perceput — smart training.
-          </p>
+          <p class="mt-1 text-sm text-slate-700">≈ 400–700 kcal/oră, în funcție de stil și intensitate.</p>
         </article>
       </div>
-    </section>
+      <!-- col poză -->
+      <div class="md:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/60 shadow min-h-[260px] md:min-h-[320px]">
+        <img src="/RoCa//p1.png" alt="Antrenament în bazin"
+            class="absolute inset-0 w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <!-- RÂND 2 (poza stânga) -->
+    <div class="mt-6 grid gap-6 md:grid-cols-12 md:items-stretch">
+      <!-- col poză (mutată în stânga pe desktop) -->
+      <div class="md:order-1 md:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/60 shadow min-h-[260px] md:min-h-[320px]">
+        <img src="/RoCa//p2.png" alt="Instructori RoCa"
+            class="absolute inset-0 w-full h-full object-cover" />
+      </div>
+      <!-- col texte -->
+      <div class="md:order-2 md:col-span-7 flex flex-col gap-4">
+        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Îmbunătățește respirația</h3>
+          <p class="mt-1 text-sm text-slate-700">Dezvoltă controlul respirației și capacitatea pulmonară.</p>
+        </article>
+        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Îți întărește inima</h3>
+          <p class="mt-1 text-sm text-slate-700">Antrenament cardio excelent, cu progres vizibil.</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- RÂND 3 (poza dreapta) -->
+    <div class="mt-6 grid gap-6 md:grid-cols-12 md:items-stretch">
+      <!-- col texte -->
+      <div class="md:col-span-7 flex flex-col gap-4">
+        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Ajută la recuperare</h3>
+          <p class="mt-1 text-sm text-slate-700">Apa ușurează mișcarea și scade durerea la mobilizare.</p>
+        </article>
+        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Eficient în timp</h3>
+          <p class="mt-1 text-sm text-slate-700">30 de minute în apă ≈ 45 pe uscat ca efort perceput.</p>
+        </article>
+      </div>
+      <!-- col poză -->
+      <div class="md:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/60 shadow min-h-[260px] md:min-h-[320px]">
+        <img src="/RoCa//p3.png" alt="RoCa – comunitate"
+            class="absolute inset-0 w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
   </main>
 
   <!-- BULELE PLUTITOARE DE FUNDAL -->
