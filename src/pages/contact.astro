@@ -1,0 +1,171 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="CONTACT">
+  <main class="max-w-6xl mx-auto px-4 py-10">
+  <h1 class="text-2xl font-bold text-slate-900">Contact</h1>
+
+<!-- Locații: două hărți una lângă alta pe desktop -->
+  <section class="mt-6 grid gap-10 md:grid-cols-2">
+    <!-- Locația 1: Bazinul Olimpic -->
+    <div class="w-full">
+      <h2 class="text-base font-semibold text-slate-900">Bazinul Olimpic</h2>
+      <p class="text-sm text-slate-700">Complexul de Natație, Splaiul Independenței – Cluj-Napoca</p>
+
+      <div class="mt-3 relative overflow-hidden rounded-lg shadow border border-slate-200/60 h-[260px] md:h-[300px]">
+        <iframe
+          class="absolute inset-0 w-full h-full"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.940676957592!2d23.56122217618055!3d46.76606577112508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490e898979d621%3A0x51d1d3c257f635e1!2sBazinul%20Olimpic!5e0!3m2!1sro!2sro!4v1762979009026!5m2!1sro!2sro"
+          style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <a class="mt-2 inline-block text-[#0F4C73] hover:underline"
+        href="https://maps.google.com/?q=Bazinul+Olimpic+Cluj"
+        target="_blank" rel="noopener">
+        Deschide în Google Maps →
+      </a>
+    </div>
+
+    <!-- Locația 2: Complexul de Natație -->
+    <div class="w-full">
+      <h2 class="text-base font-semibold text-slate-900">Complexul de Natație</h2>
+      <p class="text-sm text-slate-700">Zona Parcului Sportiv – Cluj-Napoca</p>
+
+      <div class="mt-3 relative overflow-hidden rounded-lg shadow border border-slate-200/60 h-[260px] md:h-[300px]">
+        <iframe
+          class="absolute inset-0 w-full h-full"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2733.016690518929!2d23.55866517618044!3d46.76456747112501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490e8a09655e89%3A0xb7697421e0195d21!2sComplexul%20de%20Nata%C8%9Bie!5e0!3m2!1sro!2sro!4v1763638601890!5m2!1sro!2sro"
+          style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <a class="mt-2 inline-block text-[#0F4C73] hover:underline"
+        href="https://maps.google.com/?q=Complexul+de+Nata%C8%9Bie+Cluj"
+        target="_blank" rel="noopener">
+        Deschide în Google Maps →
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Orar / Programări curente -->
+  <section class="mt-6" aria-labelledby="orar-title">
+    <h2 id="orar-title" class="text-lg md:text-xl font-semibold text-slate-900">Programări curente</h2>
+
+    <ul class="mt-3 grid gap-3 sm:grid-cols-2">
+      <!-- Vineri – Bazinul Olimpic -->
+      <li class="rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-4">
+        <div class="flex items-start gap-3">
+          <div class="text-xl leading-none" aria-hidden="true">🗓️</div>
+          <div class="min-w-0">
+            <p class="text-slate-900 font-medium">Vineri, ora <span class="tabular-nums">18:00</span></p>
+            <p class="text-slate-700">Bazinul Olimpic</p>
+          </div>
+        </div>
+      </li>
+      <!-- Vineri – Complexul de Natație -->
+      <li class="rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-4">
+        <div class="flex items-start gap-3">
+          <div class="text-xl leading-none" aria-hidden="true">🗓️</div>
+          <div class="min-w-0">
+            <p class="text-slate-900 font-medium">Vineri, ora <span class="tabular-nums">16:00</span></p>
+            <p class="text-slate-700">Complexul de Natație</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- (opțional) notă mică -->
+    <p class="mt-2 text-xs text-slate-600">* Programul poate suferi modificări. Recomandăm confirmarea pe WhatsApp.</p>
+  </section>
+
+
+  <!-- Formular de contact (Formspree) -->
+<section class="mt-8 max-w-xl">
+  <h2 class="text-lg md:text-xl font-semibold text-slate-900">Lasă-ne un mesaj</h2>
+  <p class="mt-1 text-slate-700">Îți răspundem cu detalii în cel mai scurt timp.</p>
+
+  <form
+    action="https://formspree.io/f/mqanggde"
+    method="POST"
+    class="mt-4 space-y-4 rounded-2xl bg-white/70 backdrop-blur p-5 border border-slate-200/60 shadow-sm"
+  >
+    <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
+
+      <div>
+        <label for="nume" class="block text-sm font-medium text-slate-800">Nume și prenume</label>
+        <input id="nume" name="nume" type="text" required
+              class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+                      focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30" />
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="telefon" class="block text-sm font-medium text-slate-800">Telefon</label>
+          <input
+            id="telefon"
+            name="telefon"
+            type="text"
+            inputmode="numeric"
+            autocomplete="tel"
+            placeholder="07xxxxxxxx"
+            required
+            maxlength="10"
+            oninput="this.value = this.value.replace(/\D/g,'').slice(0,10)"
+            class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+                  focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30"
+          />
+          <p class="mt-1 text-xs text-slate-500">Doar cifre, maxim 10 (ex: 07xxxxxxxx).</p>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-slate-800">Email</label>
+          <input id="email" name="email" type="email" placeholder="nume@domeniu.ro"
+                class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+                        focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30" />
+        </div>
+      </div>
+
+      <div>
+        <label for="mesaj" class="block text-sm font-medium text-slate-800">Spune-ne ce servicii ai dori</label>
+        <textarea id="mesaj" name="message" rows="4" required
+                  class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+                        focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30"
+                  placeholder="Inițiere copii, perfecționare adulți, programări vineri etc."></textarea>
+      </div>
+
+      <!-- Subiect în mail -->
+      <input type="hidden" name="_subject" value="Mesaj nou de pe RoCa Swimming Club">
+      <!-- Redirect după succes (opțional – vezi mai jos pagina /multumim) -->
+      <input type="hidden" name="_next" value="/multumim">
+
+      <!-- Consimțământ (obligatoriu) -->
+      <div class="flex items-start gap-2">
+        <input id="consent" name="consent" type="checkbox" required
+              class="mt-1 h-4 w-4 rounded border-slate-300 text-[#0F4C73] focus:ring-[#0F4C73]/30" />
+        <label for="consent" class="text-sm text-slate-700">
+          Sunt de acord ca datele furnizate (nume, telefon, email, mesaj) să fie folosite
+          exclusiv pentru a mă contacta în legătură cu serviciile RoCa.
+        </label>
+      </div>
+
+      <button type="submit"
+              class="mt-3 w-full sm:w-auto rounded-xl px-4 py-2 bg-[#0F4C73] text-white font-medium
+                    hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/40">
+        Trimite mesajul
+      </button>
+
+      <!-- Notă scurtă -->
+      <p class="mt-2 text-xs text-slate-600">
+        Nu salvăm datele într-o bază de date proprie; le folosim doar pentru a răspunde solicitării tale.
+        Mesajul este transmis prin email (și procesat de furnizorul formularului).
+      </p>
+
+    </form>
+  </section>
+
+</main>
+
+</Base>

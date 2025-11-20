@@ -1,0 +1,108 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Despre Noi">
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-2xl  font-semibold text-slate-900 tracking-tight">Despre Noi</h1>
+
+    <section class="mt-8 space-y-6">
+    <!-- Motto -->
+    <div class="text-center">
+        <div class="inline-flex items-start gap-2 text-slate-800">
+        <span aria-hidden="true" class="text-2xl md:text-3xl">“</span>
+        <p class="text-xl md:text-2xl italic">Mens sana in corpore sano.</p>
+        <span aria-hidden="true" class="text-2xl md:text-3xl -mt-1">”</span>
+        </div>
+        <p class="mt-1 text-sm text-slate-600">minte sănătoasă în corp sănătos</p>
+    </div>
+
+    <!-- Linie discretă -->
+    <div class="mx-auto h-px w-24 bg-slate-300/50"></div>
+
+    <!-- Misiunea noastră (text mai „de vânzare”) -->
+    <div class="mx-auto max-w-5xl">
+        <h2 class="text-lg md:text-xl font-semibold text-slate-900">Misiunea noastră</h2>
+        <p class="mt-2 text-slate-700 leading-relaxed">
+        Suntem o echipă de profesioniști care promovează sportul și un stil de viață sănătos. Credem că înotul este
+        cel mai complet antrenament pentru corp și minte — îți dezvoltă postura, respirația, rezistența și încrederea
+        în apă, la orice vârstă. La RoCa, fiecare cursant are un obiectiv clar și un plan simplu, cu progres vizibil
+        de la o ședință la alta.
+        </p>
+        <p class="mt-2 text-slate-700 leading-relaxed">
+        Fie că ești începător absolut sau vrei perfecționare pe tehnică, te ghidăm pas cu pas, într-un cadru sigur și
+        prietenos, astfel încât înotul să devină o plăcere. Lucrăm cu grupe mici și sesiuni 1-la-1
+        pentru atenție reală la detalii.
+        </p>
+
+        <!-- De ce să ne alegi -->
+        <div class="mt-5 grid gap-3 md:grid-cols-2 text-slate-700 text-sm">
+        <div class="space-y-2">
+            <p>• <strong>Planuri adaptate</strong> vârstei, nivelului și programului tău.</p>
+            <p>• <strong>Tehnică corectă</strong> predată pe înțelesul tău, cu exerciții scurte și clare.</p>
+            <p>• <strong>Siguranță în apă</strong> prin rutine simple de respirație.</p>
+        </div>
+        <div class="space-y-2">
+            <p>• <strong>Antrenori cu experiență</strong> în performanță, polo și inițiere.</p>
+            <p>• <strong>Progres măsurabil</strong> — feedback după fiecare ședință.</p>
+            <p>• <strong>Atmosferă prietenoasă</strong> și comunitate care te susține.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+
+    <section class="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+    <!-- Robert -->
+    <article class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm overflow-hidden">
+        <figure>
+        <img src="/p10.png" alt="Robert — antrenor de înot" class="w-full h-64 object-cover" loading="lazy" />
+        </figure>
+        <div class="p-4">
+        <h2 class="text-lg font-semibold text-slate-900">Robert</h2>
+        <p class="text-sm text-slate-600">Antrenor înot</p>
+        <p class="mt-2 text-slate-700 text-sm leading-relaxed">
+            Salut, mă numesc Robert și am 23 de ani. Sunt fost sportiv de performanță: 2 ani înot și 12 ani polo pe apă.
+            Acum 3 ani am ales, din pasiune, să devin instructor de înot și vreau să împărtășesc
+            din experiența și cunoștințele mele viitorilor sportivi.
+        </p>
+        </div>
+    </article>
+
+    <!-- Carol -->
+    <article class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm overflow-hidden">
+        <figure>
+        <img src="/p10.png" alt="Carol — antrenor de înot" class="w-full h-64 object-cover" loading="lazy" />
+        </figure>
+        <div class="p-4">
+        <h2 class="text-lg font-semibold text-slate-900">Carol</h2>
+        <p class="text-sm text-slate-600">Antrenor înot</p>
+        <p class="mt-2 text-slate-700 text-sm leading-relaxed">
+            Salut, sunt Carol, am 22 de ani. Fost sportiv de performanță, dublu medaliat și fost component al
+            lotului național de natație. Înotul este prima și ultima mea iubire; ca antrenor lucrez de 2 ani
+            cu copii și adulți și îmi doresc să le ofer cursanților plăcerea de a-și dezvolta corpul și psihicul în apă.
+        </p>
+        </div>
+    </article>
+
+    <!-- Ionuț -->
+    <article class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm overflow-hidden">
+        <figure>
+        <img src="/p10.png" alt="Ionuț — antrenor de înot" class="w-full h-64 object-cover" loading="lazy" />
+        </figure>
+        <div class="p-4">
+        <h2 class="text-lg font-semibold text-slate-900">Ionuț</h2>
+        <p class="text-sm text-slate-600">Antrenor înot</p>
+        <p class="mt-2 text-slate-700 text-sm leading-relaxed">
+            Sunt Ionuț, am 22 de ani și sunt antrenor de înot, fost sportiv de performanță. Am practicat polo pe apă timp
+            de 10 ani, iar după încheierea carierei sportive am rămas aproape de ceea ce iubesc cel mai mult — apa.
+            Am diploma de instructor sportiv și, de peste 4 ani, lucrez cu copii și adulți pentru inițiere,
+            perfecționare și dezvoltarea tehnicii. Îmi place să transmit pasiunea pentru acest sport și să-i ajut pe
+            cei din jur să-și depășească limitele, pas cu pas.
+        </p>
+        </div>
+    </article>
+    </section>
+  </main>
+</Base>

@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* === Bubbles vizibile, multe, pe toată înălțimea === */
+.bubble-ctx {
+  position: relative;
+  overflow: hidden; /* taie bulinele în interiorul cercului */
+}
+
+.bubble-dot {
+  position: absolute;
+  left: var(--x, 50%);           /* poziția orizontală inițială */
+  bottom: -16px;                 /* pornesc puțin sub cerc */
+  width: var(--size, 16px);
+  height: var(--size, 16px);
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at 35% 35%, rgba(255,255,255,.95), rgba(14,165,233,.55));
+  box-shadow: 0 0 14px rgba(14,165,233,.45), 0 0 2px rgba(255,255,255,.6) inset;
+  opacity: .98;
+  pointer-events: none;
+  will-change: bottom, left, opacity;
+
+  /* urcare pe verticală (bottom) + legănat pe orizontală (left) */
+  animation:
+    riseBottom var(--dur, 6s) var(--delay, 0s) infinite ease-out,
+    swaySide   var(--dur2, 4.5s) var(--delay, 0s) infinite ease-in-out;
+}
+
+/* urcare reală pe toată înălțimea cercului */
+@keyframes riseBottom {
+  0%   { bottom: -16px; opacity: 0; }
+  10%  { opacity: .95; }
+  100% { bottom: 110%; opacity: 0; }  /* 110% = iese puțin sus */
+}
+
+/* legănat cu amplitudine variabilă */
+@keyframes swaySide {
+  0%   { left: calc(var(--x, 50%) - var(--amp, 10%)); }
+  50%  { left: calc(var(--x, 50%) + var(--amp, 10%)); }
+  100% { left: calc(var(--x, 50%) - var(--amp, 10%)); }
+}
+/* === Sfârșit buline === */
+
+
+/* --- Bule care urcă pe întreaga pagină --- */
+.page-bubbles { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+
+.page-bubble{
+  position:absolute; bottom:-10vh; left:50%;
+  width:var(--size,18px); height:var(--size,18px);
+  border-radius:9999px; cursor:pointer; pointer-events:auto;   /* ← permite click */
+  background: radial-gradient(ellipse at 35% 35%,
+              rgba(255,255,255,.95), rgba(14,165,233,.55));
+  box-shadow: 0 0 14px rgba(14,165,233,.45), 0 0 2px rgba(255,255,255,.6) inset;
+  transform: translateX(-50%) translateY(0) scale(.9);
+  opacity:.95; filter:saturate(1.1);
+  animation:
+    bubble-rise var(--dur,7s) linear forwards,
+    bubble-sway var(--dur,7s) ease-in-out forwards;
+}
+
+/* animația de “pop” la click */
+@keyframes pop {
+  0%   { transform: translateX(-50%) translateY(var(--y,0)) scale(1);   opacity:1;   }
+  60%  { transform: translateX(-50%) translateY(var(--y,0)) scale(1.25); opacity:.9; }
+  100% { transform: translateX(-50%) translateY(var(--y,0)) scale(.6);   opacity:0;  }
+}
+
+
+@keyframes bubble-rise {
+  0%   { transform: translateX(-50%) translateY(0)    scale(.9);  opacity: .0; }
+  8%   { opacity: .95; }
+  100% { transform: translateX(-50%) translateY(-115vh) scale(1); opacity: 0; }
+}
+
+@keyframes bubble-sway {
+  0%   { margin-left: calc(var(--offset, 0px) - var(--amp, 0px)); }
+  50%  { margin-left: calc(var(--offset, 0px) + var(--amp, 0px)); }
+  100% { margin-left: calc(var(--offset, 0px) - var(--amp, 0px)); }
+}
+
+/* dacă utilizatorul preferă mai puțină mișcare */
+@media (prefers-reduced-motion: reduce) {
+  .page-bubble { animation: none; opacity: 0; }
+}

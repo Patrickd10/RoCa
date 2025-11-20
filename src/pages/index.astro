@@ -1,0 +1,304 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Acasă">
+  <!-- HERO: Video -->
+  <section class="relative h-[56vh] md:h-[68vh] overflow-hidden">
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      src="/Water.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata">
+    </video>
+
+    <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-transparent z-10"></div>
+
+    <div class="relative z-20 max-w-6xl mx-auto px-4 h-full flex items-end pb-8">
+      <div class="text-white drop-shadow">
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight">RoCa Swimming Club</h1>
+        <p class="mt-2 text-base md:text-lg text-white/90">
+          Lecții de înot pentru începători și perfecționare – siguranță, tehnică, progres.
+        </p>
+        <div class="mt-4 flex gap-3">
+          <a href="/cursuri" class="rounded-xl bg-white/90 text-slate-900 px-4 py-2 font-medium hover:brightness-95">
+            Vezi cursurile
+          </a>
+          <a href="/contact" class="rounded-xl bg-[#0F4C73] text-white px-4 py-2 font-medium hover:brightness-110">
+            Rezervă-ți locul
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <!-- GALERIE -->
+    <section class="mt-2">
+      <div class="flex items-baseline justify-between ml-1 md:ml-0">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+          Hai să ne cunoști — intră în galerie
+        </h2>
+      </div>
+
+      <div class="mt-3 relative w-full max-w-2xl mx-auto
+                  h-64 md:h-80 lg:h-96
+                  overflow-hidden rounded-xl border border-slate-200/60 shadow">
+        <!-- imaginea curentă -->
+        <img id="hero-slide"
+             src="/inout.jpeg" alt="RoCa Swimming Club – galerie"
+             class="absolute inset-0 size-full object-cover transition-opacity duration-500 opacity-100" />
+
+        <!-- overlay jos -->
+        <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/35 to-transparent pointer-events-none"></div>
+
+        <!-- butoane -->
+        <button id="prev-slide"
+                class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/35 hover:bg-black/50
+                       text-white backdrop-blur px-3 py-2 shadow focus:outline-none"
+                aria-label="Înapoi">‹</button>
+        <button id="next-slide"
+                class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/35 hover:bg-black/50
+                       text-white backdrop-blur px-3 py-2 shadow focus:outline-none"
+                aria-label="Înainte">›</button>
+
+        <!-- indicatori -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          <span class="dot h-2.5 w-2.5 rounded-full bg-white/80"></span>
+          <span class="dot h-2.5 w-2.5 rounded-full bg-white/40"></span>
+          <span class="dot h-2.5 w-2.5 rounded-full bg-white/40"></span>
+          <span class="dot h-2.5 w-2.5 rounded-full bg-white/40"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUN FACTS cu layout alternant (text + poze mari) -->
+    <section class="mt-14">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 px-1 md:px-0">
+        Știai că înotul…
+      </h2>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        <!-- Stânga: card text -->
+        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Lucrează tot corpul</h3>
+          <p class="mt-1 text-sm text-slate-700">
+            Activează principalii mușchi, cu impact minim pe articulații — eficient și blând.
+          </p>
+        </article>
+
+        <!-- Dreapta: imagine pe 2 rânduri -->
+        <figure class="md:row-span-2 overflow-hidden rounded-2xl border border-slate-200/60 shadow h-64 md:h-[420px]">
+          <img src="/p1.png" alt="Antrenament în bazin" class="w-full h-full object-cover" />
+        </figure>
+
+        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Îmbunătățește respirația</h3>
+          <p class="mt-1 text-sm text-slate-700">
+            Dezvoltă controlul respirator și capacitatea pulmonară — ritm, calm, constanță.
+          </p>
+        </article>
+
+        <!-- Rând 2: oglindire -->
+        <figure class="md:row-span-2 overflow-hidden rounded-2xl border border-slate-200/60 shadow h-64 md:h-[420px]">
+          <img src="/p2.png" alt="Echipă de antrenori" class="w-full h-full object-cover" />
+        </figure>
+
+        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Arde multe calorii</h3>
+          <p class="mt-1 text-sm text-slate-700">
+            400–700 kcal/oră (după stil și intensitate) — progres vizibil, sustenabil.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Ajută la recuperare</h3>
+          <p class="mt-1 text-sm text-slate-700">
+            Apa ușurează mișcarea și reduce impactul articular — excelent pentru revenire.
+          </p>
+        </article>
+
+        <!-- Rând 3 -->
+        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Îți întărește inima</h3>
+          <p class="mt-1 text-sm text-slate-700">
+            Cardio complet, respirat corect, cu echilibru între tehnică și efort.
+          </p>
+        </article>
+
+        <figure class="md:row-span-2 overflow-hidden rounded-2xl border border-slate-200/60 shadow h-64 md:h-[420px]">
+          <img src="/p3.png" alt="Identitatea RoCa" class="w-full h-full object-cover" />
+        </figure>
+
+        <article class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Eficient în timp</h3>
+          <p class="mt-1 text-sm text-slate-700">
+            30 de minute în apă ≈ 45 pe uscat ca efort perceput — smart training.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- BULELE PLUTITOARE DE FUNDAL -->
+  <div id="page-bubbles" class="page-bubbles"></div>
+
+  <!-- Stil minim pentru bulele de fundal (doar această pagină) -->
+  <style is:global>
+    .page-bubbles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5; /* sub header-ul sticky (z-50), peste restul */
+    }
+    .page-bubble {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      width: var(--size, 40px);
+      height: var(--size, 40px);
+      border-radius: 9999px;
+      background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,.8), rgba(120,180,255,.35));
+      box-shadow:
+        inset 0 0 18px rgba(255,255,255,.6),
+        0 0 20px rgba(100,160,255,.25);
+      opacity: .9;
+      transform: translateX(-50%);
+      animation:
+        bubble-rise var(--dur, 8s) linear forwards,
+        bubble-sway calc(var(--dur, 8s) * 0.9) ease-in-out infinite;
+    }
+    @keyframes bubble-rise {
+      0%   { transform: translate(-50%, 0) scale(.85); opacity: .0; }
+      10%  { opacity: .9; }
+      100% { transform: translate(-50%, -110vh) scale(1.05); opacity: 0; }
+    }
+    @keyframes bubble-sway {
+      0%   { margin-left: 0; }
+      50%  { margin-left: var(--amp, 20px); }
+      100% { margin-left: 0; }
+    }
+    @keyframes pop {
+      to {
+        transform: translateY(var(--y, 0)) scale(1.25);
+        opacity: 0;
+        filter: blur(2px);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .page-bubble { animation: none; }
+    }
+  </style>
+
+  <!-- Script slideshow galerie -->
+  <script is:inline>
+    const slides = ['/p1.png','/p2.png','/p3.png','/p1.png'];
+    const img = document.getElementById('hero-slide');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+
+    let i = 0;
+    let slideTimer = null;
+
+    function show(index, { fade = true } = {}) {
+      i = (index + slides.length) % slides.length;
+      if (fade) img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = slides[i];
+        img.style.opacity = 1;
+        dots.forEach((d, di) => {
+          d.style.backgroundColor = di === i ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.35)';
+        });
+      }, fade ? 150 : 0);
+    }
+    function next(){ show(i+1); }
+    function prev(){ show(i-1); }
+    function startAuto(){
+      stopAuto();
+      const base = 4000, jitter = 1000; // 4–5 sec
+      slideTimer = setInterval(next, Math.round(Math.random()*jitter) + base);
+    }
+    function stopAuto(){
+      if (slideTimer){ clearInterval(slideTimer); slideTimer = null; }
+    }
+    nextBtn.addEventListener('click', () => { next(); startAuto(); });
+    prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+    dots.forEach((d, di) => d.addEventListener('click', () => { show(di); startAuto(); }));
+
+    show(0, { fade: false });
+    startAuto();
+
+    const wrapper = nextBtn.closest('.relative');
+    if (wrapper){
+      wrapper.addEventListener('mouseenter', stopAuto);
+      wrapper.addEventListener('mouseleave', startAuto);
+    }
+  </script>
+
+  <!-- Script bule de fundal (1 bulă la ~4.5–6 sec; click = „pop”) -->
+  <script is:inline>
+    const container = document.getElementById('page-bubbles');
+    const rand = (min, max) => Math.random() * (max - min) + min;
+
+    function spawnBubble(){
+      if (!container) return;
+      const b = document.createElement('span');
+      b.className = 'page-bubble';
+
+      const isMobile = window.matchMedia('(max-width: 640px)').matches;
+      const size = isMobile ? rand(22, 42) : rand(30, 60);
+      const amp  = isMobile ? rand(8, 20)  : rand(12, 28);
+      const dur  = isMobile ? rand(6.0, 8.0) : rand(6.5, 9.5);
+      const left = rand(6, 94);
+
+      b.style.setProperty('--size', size + 'px');
+      b.style.left = left + '%';
+      b.style.setProperty('--amp',  amp + 'px');
+      b.style.setProperty('--dur',  dur + 's');
+
+      container.appendChild(b);
+
+      const kill = () => b.remove();
+      b.addEventListener('animationend', kill, { once: true });
+
+      b.addEventListener('click', () => {
+        const comp = getComputedStyle(b);
+        const matrix = comp.transform;
+        let ty = 0;
+        if (matrix && matrix !== 'none') {
+          const vals = matrix.split('(')[1].split(')')[0].split(',');
+          ty = parseFloat(vals[5] || 0);
+        }
+        b.style.setProperty('--y', ty + 'px');
+        b.removeEventListener('animationend', kill);
+        b.style.animation = 'pop 180ms ease-out forwards';
+        b.addEventListener('animationend', () => b.remove(), { once: true });
+      });
+    }
+
+    // prima bulă + interval
+    spawnBubble();
+    function startInterval(){
+      const isMobile = window.matchMedia('(max-width: 640px)').matches;
+      const base = isMobile ? 5200 : 4800;  // ms
+      const jitter = isMobile ? 1200 : 1000; // ms
+      return setInterval(spawnBubble, Math.round(Math.random()*jitter) + base);
+    }
+    let bubbleTimer = startInterval();
+
+    // reinițializează pe resize (schimbă dimensiunile în funcție de mobil/desktop)
+    let resizeTO;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTO);
+      resizeTO = setTimeout(() => {
+        clearInterval(bubbleTimer);
+        bubbleTimer = startInterval();
+        for (let k=0; k<2; k++) spawnBubble();
+      }, 150);
+    });
+  </script>
+</Base>
