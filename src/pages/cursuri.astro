@@ -14,7 +14,7 @@ import Base from "../layouts/Base.astro";
     <section class="mt-8">
       <p class="text-center text-slate-700">Antrenamente dinamice, siguranță și multă voie bună.</p>
 
-      <div class="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 sm:grid-cols-2 md:grid-cols-4">
         <!-- bulă 1 -->
         <div class="mx-auto">
           <div class="p-[3px] rounded-full bg-gradient-to-tr from-indigo-400 to-cyan-400 shadow-md">
@@ -184,7 +184,7 @@ import Base from "../layouts/Base.astro";
           </div>
         </header>
         <div class="mt-4 text-4xl font-bold tabular-nums text-slate-900">
-          400<span class="text-xl align-top"> lei</span>
+          300<span class="text-xl align-top"> lei</span>
         </div>
         <ul class="mt-4 space-y-2 text-sm text-slate-700 leading-relaxed">
           <li>• Consolidăm pas cu pas: tehnică, alunecare, coordonare mâini-picioare.</li>
@@ -205,6 +205,9 @@ import Base from "../layouts/Base.astro";
               <p class="text-slate-700">Complexul de Natație — adulți & copii</p>
               <a href="https://maps.google.com/?q=Bazinul+Babeș+Cluj" target="_blank" rel="noopener"
                  class="mt-2 inline-block text-sm text-[#0F4C73] hover:underline">Deschide în Google Maps →</a>
+              <p class="text-slate-700"> </p>
+              <a href="/RoCa/contact#formular-contact"
+                 class="mt-2 inline-block text-sm text-[#0F4C73] hover:underline">Programează-te aici →</a>
             </div>
           </div>
         </li>
@@ -216,6 +219,9 @@ import Base from "../layouts/Base.astro";
               <p class="text-slate-700">Bazinul Olimpic — doar copii</p>
               <a href="https://maps.google.com/?q=Bazinul+UT+Cluj" target="_blank" rel="noopener"
                  class="mt-2 inline-block text-sm text-[#0F4C73] hover:underline">Deschide în Google Maps →</a>
+              <p class="text-slate-700"> </p>
+              <a href="/RoCa/contact#formular-contact"
+                 class="mt-2 inline-block text-sm text-[#0F4C73] hover:underline">Programează-te aici →</a>
             </div>
           </div>
         </li>
@@ -257,6 +263,22 @@ import Base from "../layouts/Base.astro";
       </div>
     </section>
 
+    <!-- CTA final: fără WhatsApp, duce la Contact -->
+    <section class="mt-12">
+      <div class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-6
+                  flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-base font-semibold text-slate-900">Vrei să prinzi loc la următoarea grupă?</h3>
+          <p class="text-sm text-slate-700">Rezervă-ți locul completând formularul de contact.</p>
+        </div>
+        <a href="/RoCa/contact#formular-contact"
+           class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-[#0F4C73] text-white font-medium hover:brightness-110">
+          Rezervă-ți locul
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
     <!-- FAQ  -->
     <section class="mt-12">
       <h2 class="text-lg md:text-xl font-semibold text-slate-900">Întrebări frecvente</h2>
@@ -290,22 +312,6 @@ import Base from "../layouts/Base.astro";
             Da — pentru igienă, siguranță și confort. Dacă îți lipsește ceva, te sfătuim ce să cumperi.
           </div>
         </details>
-      </div>
-    </section>
-
-    <!-- CTA final: fără WhatsApp, duce la Contact -->
-    <section class="mt-12">
-      <div class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-6
-                  flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div>
-          <h3 class="text-base font-semibold text-slate-900">Vrei să prinzi loc la următoarea grupă?</h3>
-          <p class="text-sm text-slate-700">Rezervă-ți locul completând formularul de contact.</p>
-        </div>
-        <a href="/contact"
-           class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-[#0F4C73] text-white font-medium hover:brightness-110">
-          Rezervă-ți locul
-          <span aria-hidden="true">→</span>
-        </a>
       </div>
     </section>
   </main>
