@@ -54,10 +54,19 @@ import Base from "../layouts/Base.astro";
 
 
     <section class="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-    <!-- Robert -->
-    <article class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm overflow-hidden">
-        <figure>
-        <img src="/p10.png" alt="Robert — antrenor de înot" class="w-full h-64 object-cover" loading="lazy" />
+     <!-- Robert -->
+    <article
+        class="group rounded-2xl bg-white/80 backdrop-blur border border-slate-200/70 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+        <figure class="relative h-64 overflow-hidden">
+        <img
+            src="/R2.jpeg"
+            alt="Robert — antrenor de înot"
+            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/5 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"
+        ></div>
         </figure>
         <div class="p-4">
         <h2 class="text-lg font-semibold text-slate-900">Robert</h2>
@@ -71,9 +80,19 @@ import Base from "../layouts/Base.astro";
     </article>
 
     <!-- Carol -->
-    <article class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm overflow-hidden">
-        <figure>
-        <img src="/p10.png" alt="Carol — antrenor de înot" class="w-full h-64 object-cover" loading="lazy" />
+    <article
+        class="group rounded-2xl bg-white/80 backdrop-blur border border-slate-200/70 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+    >
+        <figure class="relative h-64 overflow-hidden">
+        <img
+            src="/Carol.jpeg"
+            alt="Carol — antrenor de înot"
+            class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/5 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"
+        ></div>
         </figure>
         <div class="p-4">
         <h2 class="text-lg font-semibold text-slate-900">Carol</h2>
@@ -86,23 +105,34 @@ import Base from "../layouts/Base.astro";
         </div>
     </article>
 
-    <!-- Ionuț -->
-    <article class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm overflow-hidden">
-        <figure>
-        <img src="/p10.png" alt="Ionuț — antrenor de înot" class="w-full h-64 object-cover" loading="lazy" />
-        </figure>
-        <div class="p-4">
-        <h2 class="text-lg font-semibold text-slate-900">Ionuț</h2>
-        <p class="text-sm text-slate-600">Antrenor înot</p>
-        <p class="mt-2 text-slate-700 text-sm leading-relaxed">
-            Sunt Ionuț, am 22 de ani și sunt antrenor de înot, fost sportiv de performanță. Am practicat polo pe apă timp
-            de 10 ani, iar după încheierea carierei sportive am rămas aproape de ceea ce iubesc cel mai mult — apa.
-            Am diploma de instructor sportiv și, de peste 4 ani, lucrez cu copii și adulți pentru inițiere,
-            perfecționare și dezvoltarea tehnicii. Îmi place să transmit pasiunea pentru acest sport și să-i ajut pe
-            cei din jur să-și depășească limitele, pas cu pas.
-        </p>
-        </div>
-    </article>
-    </section>
+  <!-- Ionuț -->
+  <article
+    class="group rounded-2xl bg-white/80 backdrop-blur border border-slate-200/70 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+  >
+    <figure class="relative h-64 overflow-hidden">
+      <img
+        src="/Ionut.jpeg"
+        alt="Ionuț — antrenor de înot"
+        class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/5 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"
+      ></div>
+    </figure>
+    <div class="p-4">
+      <h2 class="text-lg font-semibold text-slate-900">Ionuț</h2>
+      <p class="text-sm text-slate-600">Antrenor înot</p>
+      <p class="mt-2 text-slate-700 text-sm leading-relaxed">
+        Sunt Ionuț, am 22 de ani și sunt antrenor de înot, fost sportiv de performanță. Am practicat polo pe apă timp
+        de 10 ani, iar după încheierea carierei sportive am rămas aproape de ceea ce iubesc cel mai mult — apa.
+        Am diploma de instructor sportiv și, de peste 4 ani, lucrez cu copii și adulți pentru inițiere,
+        perfecționare și dezvoltarea tehnicii. Îmi place să transmit pasiunea pentru acest sport și să-i ajut pe
+        cei din jur să-și depășească limitele, pas cu pas.
+      </p>
+    </div>
+  </article>
+</section>
+
   </main>
 </Base>
