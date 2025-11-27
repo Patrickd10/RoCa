@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roca-swimming.ro/sitemap-index.xml
