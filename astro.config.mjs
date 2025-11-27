@@ -1,8 +1,12 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.roca-swimming.ro', // sau https://www.roca-inot.xyz/ dacă folosești www
-  base: '/',                         // IMPORTANT
-  vite: { plugins: [tailwindcss()] }
+  site: 'https://roca-swimming.ro', 
+  base: '/',
+  integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
