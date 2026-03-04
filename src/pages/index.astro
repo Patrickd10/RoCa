@@ -36,7 +36,7 @@ import Base from "../layouts/Base.astro";
     </div>
   </section>
 
-  <main class="max-w-6xl mx-auto px-4 py-10">
+  <main class="max-w-6xl mx-auto px-4 py-16">
     <!-- GALERIE -->
     <section class="mt-2">
       <div class="flex items-baseline justify-between ml-1 md:ml-0">
@@ -65,14 +65,6 @@ import Base from "../layouts/Base.astro";
                 class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/35 hover:bg-black/50
                        text-white backdrop-blur px-3 py-2 shadow focus:outline-none"
                 aria-label="Înainte">›</button>
-
-        <!-- indicatori -->
-        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-          <span class="dot h-2.5 w-2.5 rounded-full bg-white/80"></span>
-          <span class="dot h-2.5 w-2.5 rounded-full bg-white/40"></span>
-          <span class="dot h-2.5 w-2.5 rounded-full bg-white/40"></span>
-          <span class="dot h-2.5 w-2.5 rounded-full bg-white/40"></span>
-        </div>
       </div>
     </section>
 
@@ -190,7 +182,7 @@ import Base from "../layouts/Base.astro";
 
   <!-- Script slideshow galerie -->
   <script is:inline>
-    const slides = ['/poza1.jpeg','/poza2.jpeg','/poza3.jpeg','/poza4.jpeg','/poza5.jpeg'];
+    const slides = ['/poza_grup.jpeg','/poza1.jpeg','/poza2.jpeg','/poza3.jpeg','/poza4.jpeg','/poza5.jpeg'];
     const img = document.getElementById('hero-slide');
     const prevBtn = document.getElementById('prev-slide');
     const nextBtn = document.getElementById('next-slide');
