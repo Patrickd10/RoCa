@@ -1,11 +1,118 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const coursesJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://roca-swimming.ro/cursuri#webpage",
+    url: "https://roca-swimming.ro/cursuri",
+    name: "Cursuri de înot în Cluj-Napoca",
+    description: "Cursuri de înot pentru copii și adulți în Cluj-Napoca: inițiere, perfecționare și abonamente lunare.",
+    isPartOf: {
+      "@id": "https://roca-swimming.ro/#website",
+    },
+    about: {
+      "@id": "https://roca-swimming.ro/#club",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "Cursuri de înot pentru copii și adulți",
+    description: "Inițiere și perfecționare la înot în Cluj-Napoca, în grupe mici sau sesiuni 1-la-1.",
+    provider: {
+      "@id": "https://roca-swimming.ro/#club",
+    },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "O ședință de înot",
+        price: "100",
+        priceCurrency: "RON",
+        availability: "https://schema.org/InStock",
+      },
+      {
+        "@type": "Offer",
+        name: "Abonament 4 ședințe pe lună",
+        price: "300",
+        priceCurrency: "RON",
+        availability: "https://schema.org/InStock",
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Pot începe dacă nu știu deloc să înot?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Da. Cursurile sunt potrivite și pentru începători absoluți. Începem cu acomodarea în apă, plutirea, respirația și coordonarea, apoi introducem treptat mișcările de bază pentru stilurile de înot.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Ce se întâmplă dacă lipsesc?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Dacă știi că nu poți ajunge, anunță-ne cât mai devreme. Încercăm să găsim o variantă de reprogramare în limita locurilor disponibile și a programului grupelor.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Echipamentul chiar este obligatoriu?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Da. Pentru igienă, siguranță și confort ai nevoie de slip sau costum de înot, cască, ochelari, șlapi curați și prosop. Dacă ești la început și nu știi ce să alegi, îți putem recomanda echipament potrivit.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Cât costă cursurile de înot la RoCa Swimming Club?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "O ședință costă 100 lei, iar abonamentul de 4 ședințe pe lună costă 300 lei. Abonamentul este recomandat pentru progres constant, pentru că tehnica se fixează mai bine când antrenamentele sunt regulate.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Ce stiluri de înot se pot învăța la cursuri?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "În funcție de nivel, lucrăm progresiv la craul, spate, bras și elemente de bază pentru fluture. Pentru începători, prioritatea este siguranța în apă, respirația corectă și coordonarea, iar pentru cursanții mai avansați accentul cade pe tehnică, eficiență și rezistență.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Organizați cursuri de înot pentru adulți începători?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Da. RoCa Swimming Club lucrează cu adulți începători, inclusiv cu persoane care au emoții în apă. Construim progresul pas cu pas: acomodare, respirație, plutire, coordonare și apoi tehnică pentru stilurile de bază.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "De la ce vârstă pot începe copiii cursurile de înot?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Pentru copii, recomandăm să ne contactezi înainte de înscriere ca să confirmăm vârsta, nivelul, grupa potrivită și disponibilitatea locurilor. Contează mult ca ritmul cursului să fie adaptat copilului, mai ales la primele lecții.",
+        },
+      },
+    ],
+  },
+];
 ---
 
-<Base title="Cursuri de înot în Cluj-Napoca | RoCa Swimming Club"
-description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: inițiere, perfecționare și ședințe private, cu antrenori de performanță și grupe mici la RoCa Swimming Club.">
-  <main class="max-w-6xl mx-auto px-4 py-10">
-    <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Cursuri de înot</h1>
+<Base title="Cursuri de înot Cluj-Napoca | Copii și adulți | RoCa Swimming Club"
+description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: inițiere, perfecționare și ședințe private, cu antrenori de performanță și grupe mici la RoCa Swimming Club."
+canonicalPath="/cursuri"
+image="/poza5.webp"
+jsonLd={coursesJsonLd}>
+  <main id="continut" class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">Cursuri de înot în Cluj-Napoca pentru copii și adulți</h1>
     <p class="mt-2 text-slate-700">
       Lucrăm cu <strong>începători</strong> (copii și adulți) și cu cei care urmăresc <strong>perfecționare</strong>:
       tehnică, coordonare, respirație și rezistență. Hai să facem apa “acasă”.
@@ -19,7 +126,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
         <!-- bulă 1 -->
         <div class="mx-auto">
           <div class="p-[3px] rounded-full bg-gradient-to-tr from-indigo-400 to-cyan-400 shadow-md">
-            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/40 backdrop-blur-sm bubble-ctx flex items-center justify-center">
+            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/80 backdrop-blur-sm bubble-ctx flex items-center justify-center">
               <span class="text-center font-semibold text-slate-800 leading-tight px-6 z-10">
                 Inițiere copii
               </span>
@@ -54,7 +161,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
         <!-- bulă 2 -->
         <div class="mx-auto">
           <div class="p-[3px] rounded-full bg-gradient-to-tr from-indigo-400 to-cyan-400 shadow-md">
-            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/40 backdrop-blur-sm bubble-ctx flex items-center justify-center">
+            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/80 backdrop-blur-sm bubble-ctx flex items-center justify-center">
               <span class="text-center font-semibold text-slate-800 leading-tight px-6 z-10">Adulți</span>
 
               <span class="bubble-dot" style="--x:18%; --amp:12%; --dur:6.4s; --dur2:4.9s; --delay:.10s; --size:18px;"></span>
@@ -85,7 +192,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
         <!-- bulă 3 -->
         <div class="mx-auto">
           <div class="p-[3px] rounded-full bg-gradient-to-tr from-indigo-400 to-cyan-400 shadow-md">
-            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/40 backdrop-blur-sm bubble-ctx flex items-center justify-center">
+            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/80 backdrop-blur-sm bubble-ctx flex items-center justify-center">
               <span class="text-center font-semibold text-slate-800 leading-tight px-6 z-10">
                 Coordonare & ritm
               </span>
@@ -118,7 +225,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
         <!-- bulă 4 -->
         <div class="mx-auto">
           <div class="p-[3px] rounded-full bg-gradient-to-tr from-indigo-400 to-cyan-400 shadow-md">
-            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/40 backdrop-blur-sm bubble-ctx flex items-center justify-center">
+            <div class="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 rounded-full bg-white/80 backdrop-blur-sm bubble-ctx flex items-center justify-center">
               <span class="text-center font-semibold text-slate-800 leading-tight px-6 z-10">
                 Progres vizibil
               </span>
@@ -154,7 +261,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
     <!-- PREȚURI (una sub alta) -->
     <section class="mt-10 grid gap-6">
       <!-- O ședință -->
-      <article class="relative rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-6">
+      <article class="relative rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-6">
         <header class="flex items-start justify-between">
           <div>
             <h2 class="text-lg font-semibold text-slate-900">O ședință</h2>
@@ -200,7 +307,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
     <section class="mt-10">
       <h2 class="text-lg md:text-xl font-semibold text-slate-900">Program</h2>
       <ul class="mt-4 grid gap-4">
-        <li class="rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <li class="rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <div class="flex items-start gap-3">
             <div class="text-xl leading-none" aria-hidden="true">🗓️</div>
             <div class="min-w-0">
@@ -214,7 +321,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
             </div>
           </div>
         </li>
-        <li class="rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <li class="rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <div class="flex items-start gap-3">
             <div class="text-xl leading-none" aria-hidden="true">🗓️</div>
             <div class="min-w-0">
@@ -236,7 +343,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
     <section class="mt-12">
       <h2 class="text-lg md:text-xl font-semibold text-slate-900">Regulament & Echipament</h2>
       <div class="mt-4 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <div class="rounded-2xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Echipament obligatoriu</h3>
           <ul class="mt-3 space-y-1 text-sm text-slate-700">
             <li>• slip / costum de înot</li>
@@ -247,7 +354,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
             <li>• și, cel mai important, voie bună 🙂</li>
           </ul>
         </div>
-        <div class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <div class="rounded-2xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Igienă & siguranță</h3>
           <ul class="mt-3 space-y-1 text-sm text-slate-700">
             <li>• <strong>Duș obligatoriu</strong> înainte de intrarea în bazin;</li>
@@ -255,7 +362,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
             <li>• anunță instructorul dacă ai disconfort sau restricții medicale.</li>
           </ul>
         </div>
-        <div class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <div class="rounded-2xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Recomandări</h3>
           <ul class="mt-3 space-y-1 text-sm text-slate-700">
             <li>• nu mânca <strong>cu ~1 oră înainte</strong>;</li>
@@ -268,7 +375,7 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
 
     <!-- CTA final: fără WhatsApp, duce la Contact -->
     <section class="mt-12">
-      <div class="rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-6
+      <div class="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-6
                   flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h3 class="text-base font-semibold text-slate-900">Vrei să prinzi loc la următoarea grupă?</h3>
@@ -283,36 +390,84 @@ description="Alege cursuri de înot pentru copii și adulți în Cluj-Napoca: in
     </section>
 
     <!-- FAQ  -->
-    <section class="mt-12">
+    <section id="intrebari-frecvente" class="mt-12">
       <h2 class="text-lg md:text-xl font-semibold text-slate-900">Întrebări frecvente</h2>
       <div class="mt-4 space-y-3">
-        <details class="group rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm">
+        <details class="group rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm">
           <summary class="cursor-pointer list-none p-4 font-medium text-slate-900 flex items-center justify-between">
             Pot începe dacă nu știu deloc să înot?
             <span class="transition group-open:rotate-45">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-700">
-            Da. Începem cu coordonare, respirație și siguranță în apă, apoi introducem bazele stilurilor.
+            Da. Cursurile sunt potrivite și pentru începători absoluți. Începem cu acomodarea în apă, plutirea,
+            respirația și coordonarea, apoi introducem treptat mișcările de bază pentru stilurile de înot.
           </div>
         </details>
 
-        <details class="group rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm">
+        <details class="group rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm">
           <summary class="cursor-pointer list-none p-4 font-medium text-slate-900 flex items-center justify-between">
             Ce se întâmplă dacă lipsesc?
             <span class="transition group-open:rotate-45">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-700">
-            Încercăm reprogramarea în limita locurilor disponibile. Scrie-ne din timp ca să găsim o soluție.
+            Dacă știi că nu poți ajunge, anunță-ne cât mai devreme. Încercăm să găsim o variantă de reprogramare
+            în limita locurilor disponibile și a programului grupelor.
           </div>
         </details>
 
-        <details class="group rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm">
+        <details class="group rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm">
           <summary class="cursor-pointer list-none p-4 font-medium text-slate-900 flex items-center justify-between">
             Echipamentul chiar este obligatoriu?
             <span class="transition group-open:rotate-45">+</span>
           </summary>
           <div class="px-4 pb-4 text-sm text-slate-700">
-            Da — pentru igienă, siguranță și confort. Dacă îți lipsește ceva, te sfătuim ce să cumperi.
+            Da — pentru igienă, siguranță și confort ai nevoie de slip sau costum de înot, cască, ochelari,
+            șlapi curați și prosop. Dacă ești la început și nu știi ce să alegi, îți putem recomanda echipament potrivit.
+          </div>
+        </details>
+
+        <details class="group rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm">
+          <summary class="cursor-pointer list-none p-4 font-medium text-slate-900 flex items-center justify-between">
+            Cât costă cursurile de înot la RoCa Swimming Club?
+            <span class="transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-700">
+            O ședință costă 100 lei, iar abonamentul de 4 ședințe pe lună costă 300 lei. Abonamentul este recomandat
+            pentru progres constant, pentru că tehnica se fixează mai bine când antrenamentele sunt regulate.
+          </div>
+        </details>
+
+        <details class="group rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm">
+          <summary class="cursor-pointer list-none p-4 font-medium text-slate-900 flex items-center justify-between">
+            Ce stiluri de înot se pot învăța la cursuri?
+            <span class="transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-700">
+            În funcție de nivel, lucrăm progresiv la craul, spate, bras și elemente de bază pentru fluture.
+            Pentru începători, prioritatea este siguranța în apă, respirația corectă și coordonarea, iar pentru cursanții
+            mai avansați accentul cade pe tehnică, eficiență și rezistență.
+          </div>
+        </details>
+
+        <details class="group rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm">
+          <summary class="cursor-pointer list-none p-4 font-medium text-slate-900 flex items-center justify-between">
+            Organizați cursuri de înot pentru adulți începători?
+            <span class="transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-700">
+            Da. Lucrăm cu adulți începători, inclusiv cu persoane care au emoții în apă. Construim progresul pas cu pas:
+            acomodare, respirație, plutire, coordonare și apoi tehnică pentru stilurile de bază.
+          </div>
+        </details>
+
+        <details class="group rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm">
+          <summary class="cursor-pointer list-none p-4 font-medium text-slate-900 flex items-center justify-between">
+            De la ce vârstă pot începe copiii cursurile de înot?
+            <span class="transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-700">
+            Pentru copii, recomandăm să ne contactezi înainte de înscriere ca să confirmăm vârsta, nivelul, grupa potrivită
+            și disponibilitatea locurilor. Contează mult ca ritmul cursului să fie adaptat copilului, mai ales la primele lecții.
           </div>
         </details>
       </div>

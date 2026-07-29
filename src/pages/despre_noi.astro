@@ -1,11 +1,55 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://roca-swimming.ro/despre_noi#webpage",
+  url: "https://roca-swimming.ro/despre_noi",
+  name: "Despre RoCa Swimming Club",
+  description: "Echipa de antrenori RoCa Swimming Club pentru cursuri de înot în Cluj-Napoca.",
+  isPartOf: {
+    "@id": "https://roca-swimming.ro/#website",
+  },
+  about: {
+    "@id": "https://roca-swimming.ro/#club",
+  },
+  mainEntity: [
+    {
+      "@type": "Person",
+      name: "Robert",
+      jobTitle: "Antrenor înot",
+      worksFor: {
+        "@id": "https://roca-swimming.ro/#club",
+      },
+    },
+    {
+      "@type": "Person",
+      name: "Carol",
+      jobTitle: "Antrenor înot",
+      worksFor: {
+        "@id": "https://roca-swimming.ro/#club",
+      },
+    },
+    {
+      "@type": "Person",
+      name: "Ionuț",
+      jobTitle: "Antrenor înot",
+      worksFor: {
+        "@id": "https://roca-swimming.ro/#club",
+      },
+    },
+  ],
+};
 ---
 
-<Base title="Despre noi | RoCa Swimming Club Cluj-Napoca"
-description="Află povestea RoCa Swimming Club și cunoaște echipa de antrenori de înot cu experiență în performanță, polo și inițiere, care lucrează cu copii și adulți în Cluj-Napoca.">
-  <main class="max-w-6xl mx-auto px-4 py-10">
-    <h1 class="text-2xl  font-semibold text-slate-900 tracking-tight">Despre Noi</h1>
+<Base title="Despre RoCa Swimming Club | Antrenori de înot în Cluj-Napoca"
+description="Află povestea RoCa Swimming Club și cunoaște echipa de antrenori de înot cu experiență în performanță, polo și inițiere, care lucrează cu copii și adulți în Cluj-Napoca."
+canonicalPath="/despre_noi"
+image="/antrenori.webp"
+jsonLd={aboutJsonLd}>
+  <main id="continut" class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-2xl  font-semibold text-slate-900 tracking-tight">Despre RoCa Swimming Club - antrenori de înot în Cluj-Napoca</h1>
 
     <section class="mt-8 space-y-6">
     <!-- Motto -->
@@ -57,13 +101,16 @@ description="Află povestea RoCa Swimming Club și cunoaște echipa de antrenori
     <section class="mt-8 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
      <!-- Robert -->
     <article
-        class="group rounded-2xl bg-white/80 backdrop-blur border border-slate-200/70 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+        class="group rounded-2xl bg-white/95 backdrop-blur border border-slate-200/80 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
         <figure class="relative h-64 overflow-hidden">
         <img
             src="/robi_new.jpeg"
-            alt="Robert — antrenor de înot"
+            alt="Robert, antrenor de înot la RoCa Swimming Club în Cluj-Napoca"
+            width="1200"
+            height="1600"
             class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
         />
         <div
             class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/5 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"
@@ -73,8 +120,8 @@ description="Află povestea RoCa Swimming Club și cunoaște echipa de antrenori
         <h2 class="text-lg font-semibold text-slate-900">Robert</h2>
         <p class="text-sm text-slate-600">Antrenor înot</p>
         <p class="mt-2 text-slate-700 text-sm leading-relaxed">
-            Salut, mă numesc Robert și am 23 de ani. Sunt fost sportiv de performanță: 2 ani înot și 12 ani polo pe apă.
-            Acum 3 ani am ales, din pasiune, să devin instructor de înot și vreau să împărtășesc
+            Salut, mă numesc Robert și am 24 de ani. Sunt fost sportiv de performanță: 2 ani înot și 12 ani polo pe apă.
+            Acum 4 ani am ales, din pasiune, să devin instructor de înot și vreau să împărtășesc
             din experiența și cunoștințele mele viitorilor sportivi.
         </p>
         </div>
@@ -82,14 +129,17 @@ description="Află povestea RoCa Swimming Club și cunoaște echipa de antrenori
 
     <!-- Carol -->
     <article
-        class="group rounded-2xl bg-white/80 backdrop-blur border border-slate-200/70 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+        class="group rounded-2xl bg-white/95 backdrop-blur border border-slate-200/80 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
         <figure class="relative h-64 overflow-hidden">
         <img
             src="/carol_new.jpeg"
-            alt="Carol — antrenor de înot"
+            alt="Carol, antrenor de înot la RoCa Swimming Club în Cluj-Napoca"
+            width="1200"
+            height="1600"
             class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
         />
         <div
             class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/5 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"
@@ -108,14 +158,17 @@ description="Află povestea RoCa Swimming Club și cunoaște echipa de antrenori
 
   <!-- Ionuț -->
   <article
-    class="group rounded-2xl bg-white/80 backdrop-blur border border-slate-200/70 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+    class="group rounded-2xl bg-white/95 backdrop-blur border border-slate-200/80 shadow-sm overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
   >
     <figure class="relative h-64 overflow-hidden">
       <img
         src="/ionut_new.jpeg"
-        alt="Ionuț — antrenor de înot"
+        alt="Ionuț, antrenor de înot la RoCa Swimming Club în Cluj-Napoca"
+        width="1200"
+        height="1600"
         class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
+        decoding="async"
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/5 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"
@@ -125,7 +178,7 @@ description="Află povestea RoCa Swimming Club și cunoaște echipa de antrenori
       <h2 class="text-lg font-semibold text-slate-900">Ionuț</h2>
       <p class="text-sm text-slate-600">Antrenor înot</p>
       <p class="mt-2 text-slate-700 text-sm leading-relaxed">
-        Sunt Ionuț, am 22 de ani și sunt antrenor de înot, fost sportiv de performanță. Am practicat polo pe apă timp
+        Sunt Ionuț, am 23 de ani și sunt antrenor de înot, fost sportiv de performanță. Am practicat polo pe apă timp
         de 10 ani, iar după încheierea carierei sportive am rămas aproape de ceea ce iubesc cel mai mult — apa.
         Am diploma de instructor sportiv și, de peste 4 ani, lucrez cu copii și adulți pentru inițiere,
         perfecționare și dezvoltarea tehnicii. Îmi place să transmit pasiunea pentru acest sport și să-i ajut pe

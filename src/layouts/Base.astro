@@ -1,21 +1,89 @@
 ---
 import "../styles/global.css";
 
+type JsonLdSchema = Record<string, unknown>;
+
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  image?: string;
+  jsonLd?: JsonLdSchema | JsonLdSchema[];
 }
 
 const {
   title = "RoCa Swimming Club – Cursuri de înot pentru copii și adulți în Cluj-Napoca",
   description = "RoCa Swimming Club oferă cursuri de înot pentru copii și adulți în Cluj-Napoca, cu antrenori de performanță, grupe mici și ședințe 1-la-1 pentru inițiere și perfecționare.",
+  canonicalPath = Astro.url.pathname,
+  image = "/logo-roca.jpeg",
+  jsonLd,
 } = Astro.props;
 
 const siteUrl = Astro.site ?? new URL("https://roca-swimming.ro");
-const canonical = new URL(Astro.url.pathname, siteUrl).toString();
-const socialImage = new URL("/logo-roca.jpeg", siteUrl).toString();
-
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const imageUrl = new URL(image, siteUrl).toString();
 const year = new Date().getFullYear();
+const defaultJsonLd: JsonLdSchema[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["SportsActivityLocation", "LocalBusiness"],
+    "@id": "https://roca-swimming.ro/#club",
+    name: "RoCa Swimming Club",
+    url: "https://roca-swimming.ro/",
+    logo: "https://roca-swimming.ro/logo-roca.jpeg",
+    image: imageUrl,
+    description,
+    telephone: "+40741500611",
+    priceRange: "100-300 RON",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Cluj-Napoca",
+      addressRegion: "Cluj",
+      addressCountry: "RO",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Cluj-Napoca",
+    },
+    sameAs: [
+      "https://www.instagram.com/rocaswimmingclub",
+      "https://facebook.com/roca.swimming",
+    ],
+    makesOffer: [
+      {
+        "@type": "Offer",
+        name: "Cursuri de înot pentru copii",
+        priceCurrency: "RON",
+        availability: "https://schema.org/InStock",
+        url: "https://roca-swimming.ro/cursuri",
+      },
+      {
+        "@type": "Offer",
+        name: "Cursuri de înot pentru adulți",
+        priceCurrency: "RON",
+        availability: "https://schema.org/InStock",
+        url: "https://roca-swimming.ro/cursuri",
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://roca-swimming.ro/#website",
+    name: "RoCa Swimming Club",
+    url: "https://roca-swimming.ro/",
+    inLanguage: "ro-RO",
+    publisher: {
+      "@id": "https://roca-swimming.ro/#club",
+    },
+  },
+];
+const pageJsonLd: JsonLdSchema[] = jsonLd
+  ? Array.isArray(jsonLd)
+    ? jsonLd
+    : [jsonLd]
+  : [];
+const schemas: JsonLdSchema[] = [...defaultJsonLd, ...pageJsonLd];
 ---
 
 <html lang="ro">
@@ -24,39 +92,46 @@ const year = new Date().getFullYear();
     <link rel="icon" type="image/svg+xml" href="/logo-roca-svg.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0F4C73" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={canonical} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph / Facebook / Instagram -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="RoCa Swimming Club" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={socialImage} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content="RoCa Swimming Club - cursuri de înot în Cluj-Napoca" />
     <meta property="og:locale" content="ro_RO" />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image" content={imageUrl} />
+    {schemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
   </head>
 
 
-  <body class="min-h-dvh bg-gradient-to-b from-white to-[#FFFAF7] text-slate-900 antialiased selection:bg-amber-200/40">
+  <body class="min-h-dvh bg-gradient-to-b from-white via-[#FBF8F2] to-[#F8F1E6] text-slate-900 antialiased selection:bg-amber-200/40">
+    <a href="#continut" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-[#0F4C73] focus:shadow">
+      Sari la conținut
+    </a>
+
     <!-- HEADER reutilizabil -->
     <!-- HEADER (mobil compact + burger, desktop neschimbat vizual) -->
     <header class="sticky top-0 z-50
-                  bg-white/70 supports-[backdrop-filter]:bg-white/30
+                  bg-white/90 supports-[backdrop-filter]:bg-white/80
                   backdrop-blur-md border-b border-white/40 shadow-sm">
       <nav class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between text-slate-900">
         <!-- Logo + titlu (titlu scurt pe mobil) -->
         <a href="/" class="flex items-center gap-2 min-w-0">
-          <img src="/logo-roca.jpeg" alt="RoCa Swimming Club" class="h-7 w-7 md:h-10 md:w-10 rounded-sm object-cover" />
+          <img src="/logo-roca.jpeg" alt="Logo RoCa Swimming Club - cursuri de înot în Cluj-Napoca" width="40" height="40" decoding="async" class="h-7 w-7 md:h-10 md:w-10 rounded-sm object-cover" />
           <span class="font-semibold tracking-tight text-base md:text-lg truncate">
             RoCa <span class="hidden sm:inline font-semibold">Swimming Club</span>
           </span>
@@ -133,7 +208,7 @@ const year = new Date().getFullYear();
 
     <!-- FOOTER subtil global -->
     <footer class="mt-16 border-t border-slate-200/60
-                   bg-white/50 supports-[backdrop-filter]:bg-white/30 backdrop-blur
+                   bg-white/85 supports-[backdrop-filter]:bg-white/75 backdrop-blur
                    py-6">
       <div class="max-w-6xl mx-auto px-4
                   flex flex-col sm:flex-row items-center justify-between gap-4

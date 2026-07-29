@@ -1,11 +1,32 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://roca-swimming.ro/contact#webpage",
+  url: "https://roca-swimming.ro/contact",
+  name: "Contact RoCa Swimming Club",
+  description: "Contact și programări pentru cursuri de înot în Cluj-Napoca.",
+  isPartOf: {
+    "@id": "https://roca-swimming.ro/#website",
+  },
+  about: {
+    "@id": "https://roca-swimming.ro/#club",
+  },
+  mainEntity: {
+    "@id": "https://roca-swimming.ro/#club",
+  },
+};
 ---
 
-<Base title="Contact RoCa Swimming Club | Cluj-Napoca"
-description="Contactează RoCa Swimming Club pentru informații și înscrieri la cursuri de înot pentru copii și adulți în Cluj-Napoca. Programări prin telefon, WhatsApp sau rețele sociale.">
-  <main class="max-w-6xl mx-auto px-4 py-10">
-  <h1 class="text-2xl font-bold text-slate-900">Contact</h1>
+<Base title="Contact cursuri de înot Cluj-Napoca | RoCa Swimming Club"
+description="Contactează RoCa Swimming Club pentru informații și înscrieri la cursuri de înot pentru copii și adulți în Cluj-Napoca. Programări prin telefon, WhatsApp sau rețele sociale."
+canonicalPath="/contact"
+image="/logo-roca.jpeg"
+jsonLd={contactJsonLd}>
+  <main id="continut" class="max-w-6xl mx-auto px-4 py-10">
+  <h1 class="text-2xl font-bold text-slate-900">Contact RoCa Swimming Club - cursuri de înot în Cluj-Napoca</h1>
 
 <!-- Locații: două hărți una lângă alta pe desktop -->
   <section class="mt-6 grid gap-10 md:grid-cols-2">
@@ -57,7 +78,7 @@ description="Contactează RoCa Swimming Club pentru informații și înscrieri l
 
     <ul class="mt-3 grid gap-3 sm:grid-cols-2">
       <!-- Vineri – Bazinul Olimpic -->
-      <li class="rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-4">
+      <li class="rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm p-4">
         <div class="flex items-start gap-3">
           <div class="text-xl leading-none" aria-hidden="true">🗓️</div>
           <div class="min-w-0">
@@ -67,7 +88,7 @@ description="Contactează RoCa Swimming Club pentru informații și înscrieri l
         </div>
       </li>
       <!-- Vineri – Complexul de Natație -->
-      <li class="rounded-xl bg-white/70 backdrop-blur border border-slate-200/60 shadow-sm p-4">
+      <li class="rounded-xl bg-white/90 backdrop-blur border border-slate-200/70 shadow-sm p-4">
         <div class="flex items-start gap-3">
           <div class="text-xl leading-none" aria-hidden="true">🗓️</div>
           <div class="min-w-0">
@@ -89,14 +110,14 @@ description="Contactează RoCa Swimming Club pentru informații și înscrieri l
   <form
     action="https://formspree.io/f/mqanggde"
     method="POST"
-    class="mt-4 space-y-4 rounded-2xl bg-white/70 backdrop-blur p-5 border border-slate-200/60 shadow-sm"
+    class="mt-4 space-y-4 rounded-2xl bg-white/90 backdrop-blur p-5 border border-slate-200/70 shadow-sm"
   >
     <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
 
       <div>
         <label for="nume" class="block text-sm font-medium text-slate-800">Nume și prenume</label>
         <input id="nume" name="nume" type="text" required
-              class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+              class="mt-1 w-full rounded-lg border border-slate-300/80 bg-white/95 px-3 py-2
                       focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30" />
       </div>
 
@@ -113,7 +134,7 @@ description="Contactează RoCa Swimming Club pentru informații și înscrieri l
             required
             maxlength="10"
             oninput="this.value = this.value.replace(/\D/g,'').slice(0,10)"
-            class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+            class="mt-1 w-full rounded-lg border border-slate-300/80 bg-white/95 px-3 py-2
                   focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30"
           />
           <p class="mt-1 text-xs text-slate-500">Doar cifre, maxim 10 (ex: 07xxxxxxxx).</p>
@@ -122,7 +143,7 @@ description="Contactează RoCa Swimming Club pentru informații și înscrieri l
         <div>
           <label for="email" class="block text-sm font-medium text-slate-800">Email</label>
           <input id="email" name="email" type="email" placeholder="nume@domeniu.ro"
-                class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+                class="mt-1 w-full rounded-lg border border-slate-300/80 bg-white/95 px-3 py-2
                         focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30" />
         </div>
       </div>
@@ -130,7 +151,7 @@ description="Contactează RoCa Swimming Club pentru informații și înscrieri l
       <div>
         <label for="mesaj" class="block text-sm font-medium text-slate-800">Spune-ne ce servicii ai dori</label>
         <textarea id="mesaj" name="message" rows="4" required
-                  class="mt-1 w-full rounded-lg border border-slate-300/70 bg-white/80 px-3 py-2
+                  class="mt-1 w-full rounded-lg border border-slate-300/80 bg-white/95 px-3 py-2
                         focus:outline-none focus:ring-2 focus:ring-[#0F4C73]/30"
                   placeholder="Inițiere copii, perfecționare adulți, programări vineri etc."></textarea>
       </div>

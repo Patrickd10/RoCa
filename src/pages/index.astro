@@ -1,26 +1,46 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://roca-swimming.ro/#homepage",
+  url: "https://roca-swimming.ro/",
+  name: "RoCa Swimming Club - cursuri de înot în Cluj-Napoca",
+  description: "Cursuri de înot pentru copii și adulți în Cluj-Napoca, cu antrenori de performanță, grupe mici și ședințe private.",
+  isPartOf: {
+    "@id": "https://roca-swimming.ro/#website",
+  },
+  about: {
+    "@id": "https://roca-swimming.ro/#club",
+  },
+};
 ---
 
 <Base title="RoCa Swimming Club – Cursuri de înot în Cluj-Napoca pentru copii și adulți"
-  description="Cursuri de înot în Cluj-Napoca pentru copii și adulți, în grupe mici sau 1-la-1, cu antrenori de performanță și atmosferă prietenoasă la RoCa Swimming Club.">
+  description="Cursuri de înot în Cluj-Napoca pentru copii și adulți, în grupe mici sau 1-la-1, cu antrenori de performanță și atmosferă prietenoasă la RoCa Swimming Club."
+  canonicalPath="/"
+  image="/poza1.webp"
+  jsonLd={homeJsonLd}>
   <!-- HERO: Video -->
   <section class="relative h-[56vh] md:h-[68vh] overflow-hidden">
     <video
       class="absolute inset-0 w-full h-full object-cover"
-      src="/Water.mp4"
+      src="/Water-optimized.mp4"
+      poster="/Water-poster.webp"
       autoplay
       muted
       loop
       playsinline
-      preload="metadata">
+      preload="metadata"
+      aria-hidden="true">
     </video>
 
-    <div class="absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-transparent z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/20 z-10"></div>
 
     <div class="relative z-20 max-w-6xl mx-auto px-4 h-full flex items-end pb-8">
       <div class="text-white drop-shadow">
-        <h1 class="text-3xl md:text-5xl font-bold tracking-tight">RoCa Swimming Club</h1>
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight">RoCa Swimming Club - cursuri de înot în Cluj-Napoca</h1>
         <p class="mt-2 text-base md:text-lg text-white/90">
           Lecții de înot pentru începători și perfecționare – siguranță, tehnică, progres.
         </p>
@@ -36,7 +56,7 @@ import Base from "../layouts/Base.astro";
     </div>
   </section>
 
-  <main class="max-w-6xl mx-auto px-4 py-16">
+  <main id="continut" class="max-w-6xl mx-auto px-4 py-16">
     <!-- GALERIE -->
     <section class="mt-2">
       <div class="flex items-baseline justify-between ml-1 md:ml-0">
@@ -50,7 +70,8 @@ import Base from "../layouts/Base.astro";
                   overflow-hidden rounded-xl border border-slate-200/60 shadow">
         <!-- imaginea curentă -->
         <img id="hero-slide"
-             src="/p1.png" alt="RoCa Swimming Club – galerie"
+             src="/p1.webp" alt="Galerie RoCa Swimming Club cu lecții de înot pentru copii și adulți în Cluj-Napoca"
+             width="1536" height="1024" loading="lazy" decoding="async"
              class="absolute inset-0 size-full object-cover transition-opacity duration-500 opacity-100" />
 
         <!-- overlay jos -->
@@ -77,17 +98,18 @@ import Base from "../layouts/Base.astro";
     <!-- RÂND 1 (poza dreapta) -->
     <div class="mt-6 grid gap-6 md:grid-cols-12 md:items-stretch">
       <div class="md:col-span-7 flex flex-col gap-4">
-        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <article class="flex-1 rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Lucrează tot corpul</h3>
           <p class="mt-1 text-sm text-slate-700">Activează principalii mușchi, cu impact minim pe articulații.</p>
         </article>
-        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <article class="flex-1 rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Arde multe calorii</h3>
           <p class="mt-1 text-sm text-slate-700">≈ 400–700 kcal/oră, în funcție de stil și intensitate.</p>
         </article>
       </div>
       <div class="md:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/60 shadow min-h-[260px] md:min-h-[320px]">
-        <img src="/poza5.jpeg" alt="Antrenament în bazin"
+        <img src="/poza5.webp" alt="Antrenament de înot în bazin pentru cursanți RoCa Swimming Club Cluj-Napoca"
+            width="1600" height="1200" loading="lazy" decoding="async"
             class="absolute inset-0 w-full h-full object-cover" />
       </div>
     </div>
@@ -95,17 +117,18 @@ import Base from "../layouts/Base.astro";
     <!-- RÂND 2 (poza stânga) -->
     <div class="mt-6 grid gap-6 md:grid-cols-12 md:items-stretch">
       <div class="md:order-2 md:col-span-7 flex flex-col gap-4">
-        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <article class="flex-1 rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Îmbunătățește respirația</h3>
           <p class="mt-1 text-sm text-slate-700">Dezvoltă controlul respirației și capacitatea pulmonară.</p>
         </article>
-        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <article class="flex-1 rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Îți întărește inima</h3>
           <p class="mt-1 text-sm text-slate-700">Antrenament cardio excelent, cu progres vizibil.</p>
         </article>
       </div>
       <div class="md:order-1 md:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/60 shadow min-h-[260px] md:min-h-[320px]">
-        <img src="/poza2.jpeg" alt="Instructori RoCa"
+        <img src="/poza2.webp" alt="Instructori RoCa Swimming Club la cursuri de înot în Cluj-Napoca"
+            width="1600" height="1200" loading="lazy" decoding="async"
             class="absolute inset-0 w-full h-full object-cover" />
       </div>
     </div>
@@ -113,21 +136,90 @@ import Base from "../layouts/Base.astro";
     <!-- RÂND 3 (poza dreapta) -->
     <div class="mt-6 grid gap-6 md:grid-cols-12 md:items-stretch">
       <div class="md:col-span-7 flex flex-col gap-4">
-        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <article class="flex-1 rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Ajută la recuperare</h3>
           <p class="mt-1 text-sm text-slate-700">Apa ușurează mișcarea și scade durerea la mobilizare.</p>
         </article>
-        <article class="flex-1 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/60 shadow-sm p-5">
+        <article class="flex-1 rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
           <h3 class="font-semibold text-slate-900">Eficient în timp</h3>
           <p class="mt-1 text-sm text-slate-700">30 de minute în apă ≈ 45 pe uscat ca efort perceput.</p>
         </article>
       </div>
       <div class="md:col-span-5 relative rounded-2xl overflow-hidden border border-slate-200/60 shadow min-h-[260px] md:min-h-[320px]">
-        <img src="/poza3.jpeg" alt="RoCa – comunitate"
+        <img src="/poza3.webp" alt="Comunitatea RoCa Swimming Club la lecții de înot în Cluj-Napoca"
+            width="1200" height="1600" loading="lazy" decoding="async"
             class="absolute inset-0 w-full h-full object-cover" />
       </div>
     </div>
   </section>
+
+    <!-- BENEFICIILE INOTULUI -->
+    <section class="mt-14" aria-labelledby="beneficii-inot-title">
+      <div class="max-w-3xl">
+        <h2 id="beneficii-inot-title" class="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900">
+          Beneficiile Înotului
+        </h2>
+      </div>
+
+      <div class="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Mai multă încredere, pas cu pas</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">
+            Pentru copii și adulți începători, înotul construiește curaj fără grabă. Înveți să te simți confortabil
+            în apă, să controlezi mișcările și să transformi fiecare ședință într-un progres mic, dar sigur.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Dezvoltare armonioasă pentru copii</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">
+            Înotul ajută copiii să își îmbunătățească postura, echilibrul, atenția și disciplina. Prin lecții adaptate
+            vârstei și nivelului, copiii învață treptat să se miște corect și să capete curaj.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Mișcare eficientă pentru adulți</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">
+            Pentru adulți, înotul este o formă excelentă de antrenament cardio cu impact redus pe articulații. Este
+            potrivit atât pentru inițiere, cât și pentru perfecționarea stilurilor de înot.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Bun pentru spate și postură</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">
+            Dacă petreci multe ore la birou, înotul poate ajuta la mobilitate, postură și relaxarea musculaturii.
+            Mișcarea în apă lucrează spatele, umerii și zona centrală cu impact redus pe articulații.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Coordonare și control al corpului</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">
+            Înotul te ajută să devii mai atent la felul în care te miști. Lucrăm la echilibru, alinierea corpului,
+            coordonarea brațe-picioare și mișcări mai eficiente, utile atât în bazin, cât și în viața de zi cu zi.
+          </p>
+        </article>
+
+        <article class="rounded-2xl bg-white/95 backdrop-blur border border-slate-200/70 shadow-sm p-5">
+          <h3 class="font-semibold text-slate-900">Un obicei sănătos pe termen lung</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-700">
+            Înotul poate deveni o rutină care susține corpul, energia și starea de bine. Fie că vii pentru copilul tău
+            sau pentru tine, te ajutăm să construiești un ritm potrivit și sustenabil.
+          </p>
+        </article>
+      </div>
+
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a href="/cursuri" class="inline-flex justify-center rounded-xl bg-[#0F4C73] px-4 py-2 text-sm font-medium text-white shadow-sm hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-[#0F4C73] focus:ring-offset-2">
+          Vezi cursurile
+        </a>
+        <a href="/cursuri#intrebari-frecvente" class="inline-flex justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-[#0F4C73] ring-1 ring-[#0F4C73]/35 hover:bg-[#0F4C73]/5 focus:outline-none focus:ring-2 focus:ring-[#0F4C73] focus:ring-offset-2">
+          Întrebări frecvente
+        </a>
+      </div>
+    </section>
 
   </main>
 
@@ -182,7 +274,7 @@ import Base from "../layouts/Base.astro";
 
   <!-- Script slideshow galerie -->
   <script is:inline>
-    const slides = ['/poza_grup.jpeg','/poza1.jpeg','/poza2.jpeg','/poza3.jpeg','/poza4.jpeg','/poza5.jpeg'];
+    const slides = ['/poza_grup.jpeg','/poza1.webp','/poza2.webp','/poza3.webp','/poza4.webp','/poza5.webp'];
     const img = document.getElementById('hero-slide');
     const prevBtn = document.getElementById('prev-slide');
     const nextBtn = document.getElementById('next-slide');
