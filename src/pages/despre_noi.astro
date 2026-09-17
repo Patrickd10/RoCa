@@ -120,7 +120,7 @@ jsonLd={aboutJsonLd}>
         <h2 class="text-lg font-semibold text-slate-900">Robert</h2>
         <p class="text-sm text-slate-600">Antrenor înot</p>
         <p class="mt-2 text-slate-700 text-sm leading-relaxed">
-            Salut, mă numesc Robert și am 24 de ani. Sunt fost sportiv de performanță: 2 ani înot și 12 ani polo pe apă.
+            Salut, mă numesc Robert și am <span class="age" data-birthdate="2002-03-12"></span> de ani. Sunt fost sportiv de performanță: 2 ani înot și 12 ani polo pe apă.
             Acum 4 ani am ales, din pasiune, să devin instructor de înot și vreau să împărtășesc
             din experiența și cunoștințele mele viitorilor sportivi.
         </p>
@@ -149,7 +149,7 @@ jsonLd={aboutJsonLd}>
         <h2 class="text-lg font-semibold text-slate-900">Carol</h2>
         <p class="text-sm text-slate-600">Antrenor înot</p>
         <p class="mt-2 text-slate-700 text-sm leading-relaxed">
-            Salut, sunt Carol, am 22 de ani. Fost sportiv de performanță, dublu medaliat și fost component al
+            Salut, sunt Carol, am <span class="age" data-birthdate="2004-03-08"></span> de ani. Fost sportiv de performanță, dublu medaliat și fost component al
             lotului național de natație. Înotul este prima și ultima mea iubire; ca antrenor lucrez de 2 ani
             cu copii și adulți și îmi doresc să le ofer cursanților plăcerea de a-și dezvolta corpul și psihicul în apă.
         </p>
@@ -178,7 +178,7 @@ jsonLd={aboutJsonLd}>
       <h2 class="text-lg font-semibold text-slate-900">Ionuț</h2>
       <p class="text-sm text-slate-600">Antrenor înot</p>
       <p class="mt-2 text-slate-700 text-sm leading-relaxed">
-        Sunt Ionuț, am 23 de ani și sunt antrenor de înot, fost sportiv de performanță. Am practicat polo pe apă timp
+        Sunt Ionuț, am <span class="age" data-birthdate="2003-05-05"></span> de ani și sunt antrenor de înot, fost sportiv de performanță. Am practicat polo pe apă timp
         de 10 ani, iar după încheierea carierei sportive am rămas aproape de ceea ce iubesc cel mai mult — apa.
         Am diploma de instructor sportiv și, de peste 4 ani, lucrez cu copii și adulți pentru inițiere,
         perfecționare și dezvoltarea tehnicii. Îmi place să transmit pasiunea pentru acest sport și să-i ajut pe
@@ -189,4 +189,36 @@ jsonLd={aboutJsonLd}>
 </section>
 
   </main>
+
+  <script>
+    function calculateAge(birthDate: string): number {
+      const [year, month, day] = birthDate.split("-").map(Number);
+      const today = new Date();
+
+      let age = today.getFullYear() - year;
+
+      const hasBirthdayPassed =
+        today.getMonth() + 1 > month ||
+        (
+          today.getMonth() + 1 === month &&
+          today.getDate() >= day
+        );
+
+      if (!hasBirthdayPassed) {
+        age--;
+      }
+
+      return age;
+    }
+
+    document.querySelectorAll<HTMLElement>(".age").forEach((element) => {
+      const birthDate = element.dataset.birthdate;
+
+      if (birthDate) {
+        element.textContent = calculateAge(birthDate).toString();
+      }
+    });
+  </script>
 </Base>
+
+
